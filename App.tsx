@@ -15,6 +15,7 @@ import {
   Alert,
   UIManager,
   LayoutAnimation,
+  Platform,
 } from 'react-native';
 import {authorize, refresh, revoke} from 'react-native-app-auth';
 
@@ -30,18 +31,18 @@ type State = {
 
 const config = {
   issuer:
-    'https://gfkms.b2clogin.com/8e7676b3-bef5-4494-a5a9-af4a338a7ef8/v2.0/',
-  clientId: '1d3789c1-85cf-4270-9704-cf295b0f5be1',
-  redirectUrl: 'azuredemo://callback',
+    'https://ksg1806.b2clogin.com/22c7745c-fd5a-4214-ba7a-bc07bf05684b/v2.0/',
+  clientId: '43e96235-af0e-480b-9b93-8f6d28dca287',
+  redirectUrl: 'com.demo.azureb2c://callback',
   additionalParameters: {},
-  scopes: ['openid'],
+  scopes: ['openid', 'offline_access'],
   serviceConfiguration: {
     authorizationEndpoint:
-      'https://gfkms.b2clogin.com/GFKMS.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1_consumer_voice_test',
+      'https://ksg1806.b2clogin.com/ksg1806.onmicrosoft.com/b2c_1_signup_signin/oauth2/v2.0/authorize',
     tokenEndpoint:
-      'https://gfkms.b2clogin.com/GFKMS.onmicrosoft.com/B2C_1_consumer_voice_test/oauth2/v2.0/token',
+      'https://ksg1806.b2clogin.com/ksg1806.onmicrosoft.com/b2c_1_signup_signin/oauth2/v2.0/token',
     revocationEndpoint:
-      'https://gfkms.b2clogin.com/GFKMS.onmicrosoft.com/B2C_1_consumer_voice_test/oauth2/v2.0/logout',
+      'https://ksg1806.b2clogin.com/ksg1806.onmicrosoft.com/b2c_1_signup_signin/oauth2/v2.0/logout',
   },
 };
 
@@ -55,7 +56,7 @@ const App = () => {
 
   const onauthorize = async () => {
     try {
-      const authState = await authorize(config);
+      const result = await authorize(config);
       // this.animateState(
       //   {
       //     hasLoggedInOnce: true,
@@ -65,7 +66,9 @@ const App = () => {
       //   },
       //   500
       // );
-      console.log(authState);
+
+      // console.log('hello');
+      console.log(result);
     } catch (error: any) {
       Alert.alert('Failed to log in', error.message);
     }

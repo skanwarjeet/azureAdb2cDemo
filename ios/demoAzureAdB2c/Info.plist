@@ -22,15 +22,15 @@
   <array>
     <dict>
       <key>CFBundleURLName</key>
-      <string>com.demoAzureAd.B2c</string>
+      <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
       <key>CFBundleURLSchemes</key>
       <array>
-        <string>azuredemo</string>
+        <string>com.demo.azureb2c</string>
       </array>
     </dict>
   </array>
 	<key>CFBundleSignature</key>
-	<string>????</string>
+	<string>com.demoAzureAd.B2c</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
