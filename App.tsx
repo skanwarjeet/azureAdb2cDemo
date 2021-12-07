@@ -33,7 +33,7 @@ const config = {
   issuer:
     'https://ksg1806.b2clogin.com/22c7745c-fd5a-4214-ba7a-bc07bf05684b/v2.0/',
   clientId: '43e96235-af0e-480b-9b93-8f6d28dca287',
-  redirectUrl: 'com.demo.azureb2c://callback',
+  redirectUrl: 'com.demo.azureb2c://callback/',
   additionalParameters: {},
   scopes: ['openid', 'offline_access'],
   serviceConfiguration: {
